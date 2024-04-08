@@ -39,7 +39,7 @@ body {
         justify-content: flex-end;
     }
 
-    .tagline p {
+    .tagline h1 {
         font-family: 'Merriweather', serif;
         font-weight: 400;
         display: block;
