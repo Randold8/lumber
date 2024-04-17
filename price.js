@@ -1,53 +1,14 @@
 // Define prices for materials and sizes
 const prices = {
-    'Дуб': {
-      '10': 15000,
-      '20': 30000,
-      '30': 45000,
-      '1': 450,
-      '2': 900,
-      '3': 1350
-    },
-    'Береза': {
-        
-            '100': 15000,
-            '200': 30000,
-            '300': 45000,
-            '1': 450,
-            '2': 900,
-            '3': 1350
-          
-    },
-    'Ель': {
-        
-            '100': 15000,
-            '200': 30000,
-            '300': 45000,
-            '1': 450,
-            '2': 900,
-            '3': 1350
-        
-    },
-  };
+  'content-section1': 15000,
+  'content-section2': 450,
+}
   
   // Calculate and update the price for section1
   function calculateAndUpdatePrice(sectionId) {
   
     const section = document.getElementById(sectionId);
   
-    // Get selected material and size
-    const materialSelect = section.querySelector('select[name="material"]');
-    const materialValue = materialSelect.value;
-  
-     // For different selections in sections
-     let sizeSelect;
-  
-
-    sizeSelect = section.querySelector('select[name="size"]');
-  
-     const sizeValue = sizeSelect.value;
-  
-     // Get quantity value as number
      const quantityInput = section.querySelector('input[type=number][name="quantity"]');
   
      const quantityValue = parseInt(quantityInput.value,10);
@@ -56,7 +17,7 @@ const prices = {
      let totalPrice;
   
      try {
-        totalPrice = prices[materialValue][sizeValue] * quantityValue;
+        totalPrice = prices[section.id] * quantityValue;
   
         // Handle case where no pricing data available.
         if (!totalPrice && totalPrice !==0){

@@ -253,16 +253,7 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .order-call input[type=tel] {
-        font-size: calc(0.8vw + 1vh);
-        width: calc(100% - 22px);
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-    }
-
-    #order-call-button {
+    .our-phone {
         font-size: calc(0.8vw + 1vh);
         width: 100%;
         padding: 10px;
@@ -270,15 +261,11 @@ body {
         /* Bootstrap primary color */
         color: white;
         border: none;
-        cursor: pointer;
         border-radius: 5px;
         transition-duration: .3s;
+        user-select: text;
+        cursor:text;
 
-    }
-
-    #order-call-button:hover {
-        background-color: seagreen;
-        /* darker blue on hover */
     }
 
     #scrollButton {
@@ -331,6 +318,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        text-align: center;
+    }
     .site-header {
         background-color: rgb(212, 77, 32);
         display: flex;
@@ -366,7 +356,7 @@ body {
         margin:0;
     }
 
-    .tagline {
+    .tagline, .tagline-description {
         display: none;
     }
 

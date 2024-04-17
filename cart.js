@@ -49,12 +49,7 @@ function addToOrder(sectionId) {
     var order = {};
     order.type = sectionId;
     if (sectionId === 'content-section1' || sectionId === 'content-section2') {
-        var materialSelect = document.getElementById(sectionId).querySelector('[name=material]');
-        var sizeSelect = document.getElementById(sectionId).querySelector('[name=size]');
         var price = document.getElementById(sectionId).querySelector('[id=price]');
-
-        order.material = materialSelect.options[materialSelect.selectedIndex].value;
-        order.size = sizeSelect.options[sizeSelect.selectedIndex].value;
         order.quantity = parseInt(document.getElementById(sectionId).querySelector('[name=quantity]').value);
         order.price = price.innerText.slice(0, -13);
     } else if (sectionId === 'content-section3') {
@@ -84,7 +79,7 @@ function saveOrder(order) {
 
     localStorage.setItem('orders', JSON.stringify(orders));
 
-    alert("Your order has been added!");
+    alert("Заказ добавлен!");
 }
 
 
@@ -113,7 +108,7 @@ function loadOrders() {
             const sectionName = item.type === 'content-section1' ? 'Пиломатериалы' : 'Щепа';
     
             // Compose the content string using template literals for readability
-            content = `${sectionName}, ${item.material}, ${item.size} м<sup>3</sup>, ${item.quantity} шт. - ${item.price} руб.`;
+            content = `${sectionName}, ${item.quantity} м<sup>3</sup>. - ${item.price} руб.`;
         } else if (item.type === 'content-section3') {
             // Compose the content string for service orders
             content = `Услуги щеповоза, ${item.address}, ${item.date}`;
@@ -135,7 +130,7 @@ function loadOrders() {
 
         // Append item to container div
         ordersDiv.appendChild(orderElem);
-        costElement.innerHTML = 'Стоимость заказа: ' + totalPrice +' руб. без НДС';
+        costElement.innerHTML = 'Предварительная стоимость заказа: <br>' + totalPrice +' руб. без НДС';
     });
 }
 
