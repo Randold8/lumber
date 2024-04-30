@@ -50,18 +50,27 @@ function addToOrder(sectionId) {
     order.type = sectionId;
     if (sectionId === 'content-section1' || sectionId === 'content-section2') {
         var price = document.getElementById(sectionId).querySelector('[id=price]');
-        order.quantity = parseInt(document.getElementById(sectionId).querySelector('[name=quantity]').value);
+        var quantityInput = document.getElementById(sectionId).querySelector('[name=quantity]');
+        var quantity = quantityInput.value;
+
+        // Проверка введенного значения на положительное число
+        if (!/^\d+$/.test(quantity)) {
+            alert("Пожалуйста, введите корректное значение объема!");
+            return; // Выход из функции, если значение некорректно
+        }
+
+        order.quantity = parseInt(quantity);
         order.price = price.innerText.slice(0, -13);
     } else if (sectionId === 'content-section3') {
         const address = document.getElementById('address').value;
         const date = document.getElementById('delivery-date').value;
-    
-        // Check if either field is empty
+
+        // Проверка, заполнены ли поля адреса и даты доставки
         if (!address || !date) {
             alert("Пожалуйста, введите адрес и дату доставки!");
-            return; // Exit function early
+            return; // Выход из функции, если поля не заполнены
         }
-    
+
         order.address = address;
         order.date = date;
     }
@@ -71,6 +80,7 @@ function addToOrder(sectionId) {
     hiddenSection.classList.add('show-content');
     toggleButtonVisibility(true);
 }
+
 
 function saveOrder(order) {
     let orders = JSON.parse(localStorage.getItem('orders')) || [];
