@@ -93,6 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         toggleContent(toggle);
                 });
         }
+
+            
         var russianLocale = {
                 previousMonth : 'Предыдущий месяц',
                 nextMonth     : 'Следующий месяц',
