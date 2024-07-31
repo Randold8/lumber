@@ -442,6 +442,7 @@ body {
     }
     .mobile-image {
     position: relative; 
+    width: 100%;
     }
     .mobile-image img {
         position: relative;
@@ -463,11 +464,17 @@ body {
         text-align: center;
         display:flex;
         flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        border-radius: 10px;
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
         max-height: 0;
         /* Initially content is hidden */
         background-color: rgb(225, 103, 62);
+    }
+    .content input {
+        width:20vw;
     }
 
     .close-button, #scrollButton {

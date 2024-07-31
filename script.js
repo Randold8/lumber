@@ -75,24 +75,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (window.innerWidth < 768) {
                 var toggles = document.querySelectorAll('.toggle-section');
-
+            
                 function toggleContent(toggle) {
-                        var contentId = 'content-' + toggle.id;
-                        var content = document.getElementById(contentId);
-
-                        // Make sure we found a corresponding content element
-                        if (content) {
-                                toggle.addEventListener('click', function () {
-                                        var maxHeight = (content.style.maxHeight && content.style.maxHeight !== '0px') ? '0px' : `${content.scrollHeight}px`;
-                                        content.style.maxHeight = maxHeight;
-                                });
-                        }
+                    var contentId = 'content-' + toggle.id;
+                    var content = document.getElementById(contentId);
+            
+                    // Make sure we found a corresponding content element
+                    if (content) {
+                        toggle.addEventListener('click', function () {
+                            var isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+                            content.style.maxHeight = isExpanded ? '0px' : `${content.scrollHeight}px`;
+                            content.style.border = isExpanded ? 'none' : '4px solid rgb(212, 77, 32)';
+                        });
+                    }
                 }
-
+            
                 toggles.forEach(function (toggle) {
-                        toggleContent(toggle);
+                    toggleContent(toggle);
                 });
-        }
+            }
+            
 
             
         var russianLocale = {
