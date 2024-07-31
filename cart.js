@@ -140,7 +140,7 @@ function loadOrders() {
 
         // Append item to container div
         ordersDiv.appendChild(orderElem);
-        costElement.innerHTML = 'Предварительная стоимость заказа: <br>' + totalPrice +' руб. без НДС';
+        costElement.innerHTML = 'Предварительная стоимость заказа: <br>' + totalPrice +' руб. без НДС и стоимости доставки.';
     });
 }
 
